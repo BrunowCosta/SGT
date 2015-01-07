@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:jsf="http://xmlns.jcp.org/jsf"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  manifest="SGE.appcache">
+	  
+<head jsf:id="head">
+	<title>SGE</title>
+
+	<meta charset="UTF-8" />
+	<meta name="author" content="Bruno Costa" />
+	<meta name="description" content="A web system to manage a church" />
+	<meta name="keywords" content="God, Church, Friendship, Managing" />
+	
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/image/layout/icon-church.png" type="image/x-icon" />
+	
+	<link jsf:library="css" jsf:name="/main.css" />
+	
+	<link jsf:library="css/metro" jsf:name="/metro-bootstrap.css" />
+	<link jsf:library="css/metro" jsf:name="/metro-bootstrap-responsive.css" />
+	<h:outputScript library="js/jquery" name="/jquery.min.js" />
+	<h:outputScript library="js/jquery" name="/jquery.widget.min.js" />
+	<h:outputScript library="js/metro" name="/metro.min.js" />
+</head>
+
+<body jsf:id="body" class="metro">
+<f:view locale="#{internationalizationMBean.locale}">
+
+<div class="container bg-darkCyan">
+
+	<div class="error">
+		
+		<img class="span2" jsf:url="/resources/image/layout/error-face.png" />
+		<h3  class="fg-white">O sistema se comportou de maneira inesperada</h3>
+		<h6 class="fg-white">Desculpe pelo transtorno, por favor reportar o bug.</h6>
+		
+		<div class="panel bg-black erro-stacktrace" data-role="panel">
+			<div class="panel-header">
+				<span class="subheader-secondary">#{errorHandleMBean.statusCode}</span>
+			</div>
+			
+			<div class="panel-content">
+				<p class="fg-white">#{errorHandleMBean.message}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</f:view>
+</body>
+</html>

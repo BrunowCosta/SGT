@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/resources/view/template/template.xhtml">
+<ui:define name="envelope">
+
+	<div id="login" style="width: 235px; margin:auto;">
+		<h:form>
+			<p:fieldset legend="Autenticação">
+		        <h:panelGrid columns="2" cellpadding="5">
+		        	<h:outputText value="Usuário: " />
+		        	<p:inputText id="usuario" value="#{acessoController.login}"/>
+		        	
+		        	<h:outputText value="Senha: " />
+					<p:password id="senha" value="#{acessoController.senha}" />
+					
+					<p:column colspan="1">
+						<p:commandButton value="Entrar" label="Entrar" action="#{acessoController.logon}" ajax="false" icon="fa-hand-o-up"/>
+					</p:column>
+		        </h:panelGrid>
+		        
+		    </p:fieldset>
+		    <p:commandLink outcome="/resources/view/index.jsf">
+				<small>
+					<h:outputText value="Esqueceu as credenciais!? Clique aqui para recupera-las"/>
+				</small>
+			</p:commandLink>
+	    </h:form>
+	</div>
+
+</ui:define>
+</ui:composition>
+
+</html>

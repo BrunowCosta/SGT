@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+<div class="topo">
+	<div class="cabecalho">
+		<h:link outcome="/resources/view/index.jsf">
+			<h:graphicImage value="/resources/imagens/layout/imagem_topo.png" style="width: 300px;height: 100px;" alt=""/>
+		</h:link>
+	</div>
+	
+	<div id="menuPrincipal">
+		<p:breadCrumb>
+		    <p:menuitem value="Login" url="#" />
+		</p:breadCrumb>
+	</div>
+</div>
+</ui:composition>
+</html>

@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+
+html, body {
+	height:100%;
+}
+
+html {
+	background-color: #A5A4A4;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: white;
+	max-width: 940px;
+	margin:auto;
+	padding: 0px 10px 0px 10px;
+	
+	box-shadow: 0px 0px 1em #666;
+	-webkit-box-shadow: 0px 0px 1em #666;
+	-moz-box-shadow: 0px 0px 1em #666;
+}
+
+.topo .cabecalho {
+	padding: 20px 10px 20px 10px;
+}
+
+.envelope {
+	min-height: 320px;
+	min-width: 920px;
+	padding-top: 10px;
+}
+
+.envelope .conteudo {
+	min-height: 320px;
+	min-width: 82%;
+	float:right;
+	margin:auto;
+}
+
+.envelope .menuLateral {
+	min-height: 320px;
+	max-width: 20%;
+	float: left;
+}
+
+footer {
+	clear:both;
+	padding: 20px;
+	height: 66px;
+	text-align: center;
+	
+    border-top: 1px solid #ddd;
+    line-height: 2.75em;
+    position: relative;
+}
+
+#login {
+	padding-top: 85px;
+	width: 235px;
+	max-height:150px;
+	margin: auto;
+}
+
+#login small {
+	font-size: 65%;
+}
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:jsf="http://xmlns.jcp.org/jsf"
+	  manifest="SGT.appcache">
+	  
+<head jsf:id="head">
+	<title>SGT</title>
+
+	<meta charset="UTF-8" />
+	<meta name="author" content="Bruno Costa" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/image/layout/sistema.png" type="image/x-icon" />
+	
+	<link jsf:library="css" jsf:name="/primefacesAjustes.css" />
+	<link jsf:library="css" jsf:name="/main.css" />
+<!-- 	<link jsf:library="font-awesome-4.2.0" jsf:name="/css/font-awesome.css" /> -->
+</head>
+
+<body jsf:id="body">
+<!-- <f:view locale="#{internacionalizacaoController.locale}"> -->
+<f:view>
+
+	<ui:debug/>
+	<div class="container">
+		<header>
+			<ui:include src="/resources/view/template/topo.xhtml" />
+		</header>
+		
+		<div class="envelope">
+			<ui:insert name="envelope"/>
+		</div>
+		
+		<footer>
+			<ui:include src="/resources/view/template/footer.xhtml" />
+		</footer>
+	</div>
+	
+</f:view>
+</body>
+</html>

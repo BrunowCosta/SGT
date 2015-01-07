@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+<h:form>
+	<p:growl autoUpdate="true"/>
+ 
+    <p:panelMenu style="width:160px">
+    
+    	<p:submenu label="Controle Tributario - IPTU">
+    		<p:submenu label="Gerenciar Imoveis" icon="ui-icon-home">
+	            <p:menuitem value="Cadastrar Novo" url="http://www.primefaces.org" icon="ui-icon-plus" />
+	            <p:menuitem value="Pesquisar" url="http://www.primefaces.org/documentation" icon="ui-icon-search" />
+            </p:submenu>
+        </p:submenu>
+        
+        <p:submenu label="Controle Tributario - ITBI">
+            <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" />
+        </p:submenu>
+
+       	<p:submenu label="Controle Tributario - ISS">
+            <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" />
+        </p:submenu>
+        
+        <p:separator />
+        
+        <p:submenu label="Controle de Usuários" >
+            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/index.jsf" icon="ui-icon-plus" />
+            <p:menuitem value="Pesquisar" outcome="/resources/view/index.jsf" icon="ui-icon-search" />
+        </p:submenu>
+        
+         <p:submenu label="Config. do Sistema" >
+            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/index.jsf" icon="ui-icon-plus" />
+            <p:menuitem value="Pesquisar" outcome="/resources/view/index.jsf" icon="ui-icon-search" />
+        </p:submenu>
+    </p:panelMenu>
+</h:form>
+</ui:composition>
+</html>
