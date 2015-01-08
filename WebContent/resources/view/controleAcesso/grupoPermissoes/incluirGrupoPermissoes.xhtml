@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/resources/view/template/templatePrincipal.xhtml">
+
+<ui:define name="breadCrumb">
+	<p:menuitem value="Início" url="/resources/view/index.html" />
+	<p:menuitem value="Cadastrar Grupo de Permissões" url="#" />
+</ui:define>
+
+<ui:define name="conteudo">
+	<div id="incluirGrupoPermissoes">
+		<h:form>
+			<p:panel header="Cadastrar Novo Grupo de Permissões - Escolhas as permissões que o novo grupo deverá possuir.">
+                <p:messages />
+                <h:panelGrid columns="4" cellpadding="3" columnClasses="label, value">
+                    <p:outputLabel for="nomeGrupo" value="Nome do Grupo: " />
+                    <p:inputText id="nomeGrupo" size="60" value="#{grupoPermissoesController.grupoPermissoes.nome}" required="true" label="Nome do Grupo"/>
+                    
+                    <p:outputLabel for="status" value="Status: " />
+                    <p:selectOneMenu id="status" value="#{grupoPermissoesController.grupoPermissoes.status}" 
+                     		required="true" style="width:125px" label="Status do Grupo">
+                     		
+			            <f:selectItem itemLabel="Ativo" itemValue="A" />
+			            <f:selectItem itemLabel="Inativo" itemValue="I" />
+			        </p:selectOneMenu>
+                    
+                    <p:outputLabel for="permissao1" value="Controle de Acesso: " />
+                    <p:selectOneRadio id="permissao1" value="#{grupoPermissoesController.grupoPermissoes.permissoes[1]}">
+			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
+			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
+			            <f:selectItem itemLabel="Alterar" itemValue="2" />
+			        </p:selectOneRadio>
+                    
+                    <p:outputLabel for="permissao2" value="Controle Tributario - IPTU: " />
+                    <p:selectOneRadio id="permissao2" value="#{grupoPermissoesController.grupoPermissoes.permissoes[2]}">
+			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
+			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
+			            <f:selectItem itemLabel="Alterar" itemValue="2" />
+			        </p:selectOneRadio>
+			        
+			        <p:commandButton value="Cadastrar" icon="ui-icon-check"/>
+                </h:panelGrid>
+            </p:panel>
+	    </h:form>
+	</div>
+</ui:define>
+</ui:composition>
+
+</html>

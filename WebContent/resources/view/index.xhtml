@@ -8,31 +8,29 @@
 
 <ui:composition template="/resources/view/template/template.xhtml">
 <ui:define name="envelope">
-
 	<div id="login" style="width: 235px; margin:auto;">
 		<h:form>
 			<p:fieldset legend="Autenticação">
 		        <h:panelGrid columns="2" cellpadding="5">
-		        	<h:outputText value="Usuário: " />
+		        	<p:outputLabel for="usuario" value="Usuário: " />
 		        	<p:inputText id="usuario" value="#{acessoController.login}"/>
 		        	
-		        	<h:outputText value="Senha: " />
-					<p:password id="senha" value="#{acessoController.senha}" />
+		        	<p:outputLabel for="senha" value="Senha: " />
+					<p:password id="senha" value="#{acessoController.senha}"/>
 					
 					<p:column colspan="1">
-						<p:commandButton value="Entrar" label="Entrar" action="#{acessoController.logon}" ajax="false" icon="fa-hand-o-up"/>
+						<p:commandButton value="Entrar" label="Entrar" action="#{acessoController.logon}" ajax="false" icon="ui-icon-key"/>
 					</p:column>
 		        </h:panelGrid>
-		        
 		    </p:fieldset>
-		    <p:commandLink outcome="/resources/view/index.jsf">
+		    
+		    <p:commandLink outcome="/resources/view/index.html">
 				<small>
 					<h:outputText value="Esqueceu as credenciais!? Clique aqui para recupera-las"/>
 				</small>
 			</p:commandLink>
 	    </h:form>
 	</div>
-
 </ui:define>
 </ui:composition>
 

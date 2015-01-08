@@ -9,16 +9,22 @@
 <ui:composition>
 
 <div class="topo">
-	<div class="cabecalho">
-		<h:link outcome="/resources/view/index.jsf">
-			<h:graphicImage value="/resources/imagens/layout/imagem_topo.png" style="width: 300px;height: 100px;" alt=""/>
-		</h:link>
-	</div>
-	
-	<div id="menuPrincipal">
-		<p:breadCrumb>
-		    <p:menuitem value="Login" url="#" />
-		</p:breadCrumb>
+	<h:link outcome="/resources/view/index.html">
+		<h:graphicImage value="/resources/imagens/layout/imagem_topo.png" style="width: 300px;height: 100px;" alt=""/>
+	</h:link>
+
+	<div class="perfil">
+		<h:form>
+			<h:link outcome="/resources/view/index.html">
+				<p:panelGrid columns="1">
+				    <f:facet name="header">
+				        <p:graphicImage value="/resources/imagens/teste.png" style="width:95px; height:100px"/>
+				    </f:facet>
+				 
+				 	<h:outputText value="Bruno Costa"/>
+				</p:panelGrid>
+			</h:link>
+		</h:form>
 	</div>
 </div>
 </ui:composition>

@@ -4,6 +4,7 @@
 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	  xmlns:f="http://xmlns.jcp.org/jsf/core"
 	  xmlns:jsf="http://xmlns.jcp.org/jsf"
+	  xmlns:p="http://primefaces.org/ui"
 	  manifest="SGT.appcache">
 	  
 <head jsf:id="head">
@@ -30,6 +31,14 @@
 		<header>
 			<ui:include src="/resources/view/template/topo.xhtml" />
 		</header>
+		
+		<div class="breadCrumb">
+			<p:breadCrumb>
+				<ui:insert name="breadCrumb">
+			    	<p:menuitem value="Início" url="#" />
+			    </ui:insert>
+			</p:breadCrumb>
+		</div>
 		
 		<div class="envelope">
 			<ui:insert name="envelope"/>

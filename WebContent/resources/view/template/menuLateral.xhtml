@@ -13,7 +13,7 @@
     <p:panelMenu style="width:160px">
     
     	<p:submenu label="Controle Tributario - IPTU">
-    		<p:submenu label="Gerenciar Imoveis" icon="ui-icon-home">
+    		<p:submenu label="Gerenciar Imóveis" icon="ui-icon-home">
 	            <p:menuitem value="Cadastrar Novo" url="http://www.primefaces.org" icon="ui-icon-plus" />
 	            <p:menuitem value="Pesquisar" url="http://www.primefaces.org/documentation" icon="ui-icon-search" />
             </p:submenu>
@@ -28,15 +28,22 @@
         </p:submenu>
         
         <p:separator />
-        
-        <p:submenu label="Controle de Usuários" >
-            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/index.jsf" icon="ui-icon-plus" />
-            <p:menuitem value="Pesquisar" outcome="/resources/view/index.jsf" icon="ui-icon-search" />
+
+        <p:submenu label="Controle de Acesso" >
+        	<p:submenu label="Gerenciar Usuários" icon="ui-icon-person">
+	            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/controleAcesso/usuario/incluirUsuario.html" icon="ui-icon-plus" />
+	            <p:menuitem value="Pesquisar" outcome="/resources/view/index.hml" icon="ui-icon-search" />
+	        </p:submenu>
+	        
+	        <p:submenu label="Grupo de Permissões" icon="ui-icon-key">
+	            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/controleAcesso/grupoPermissoes/incluirGrupoPermissoes.html" icon="ui-icon-plus" />
+	            <p:menuitem value="Pesquisar" outcome="/resources/view/index.hml" icon="ui-icon-search" />
+	        </p:submenu>
         </p:submenu>
         
          <p:submenu label="Config. do Sistema" >
-            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/index.jsf" icon="ui-icon-plus" />
-            <p:menuitem value="Pesquisar" outcome="/resources/view/index.jsf" icon="ui-icon-search" />
+            <p:menuitem value="Cadastrar Novo" outcome="/resources/view/index.html" icon="ui-icon-plus" />
+            <p:menuitem value="Pesquisar" outcome="/resources/view/index.html" icon="ui-icon-search" />
         </p:submenu>
     </p:panelMenu>
 </h:form>

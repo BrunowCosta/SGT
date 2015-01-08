@@ -32,14 +32,15 @@ public class AcessoController extends AbstractController {
 //			Usuario user = AccessoBusiness.getInstance().autenticar(this.login, this.senha, request);
 //			session.setAttribute(AcessoController.USUARIO_LOGADO, user);
 //			
+//		    TODO Ver por que as vezes da pau no firefox
 //			// TODO Ver um maneira legal de botar o caminho das telas.
 //			// Provavelmente vai ser utilizado no prettyface.
-//			return "sucesso";
+//			return "/resources/view/usuario/incluirUsuario";
 //		} catch (BusinessException e) {
 //			super.addInterfaceMessage(e);
 //			return null;
 //		}
-		return "/resources/view/usuario/incluirUsuario";
+		return "/resources/view/controleAcesso/usuario/incluirUsuario";
 	}
 	
 	public String logout() {

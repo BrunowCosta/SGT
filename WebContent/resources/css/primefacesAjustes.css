@@ -3,3 +3,7 @@
 .ui-widget, .ui-widget .ui-widget {
 	font-size: 80% !important;
 }
+
+.ui-breadcrumb .ui-menuitem-link {
+	text-decoration: none;
+}

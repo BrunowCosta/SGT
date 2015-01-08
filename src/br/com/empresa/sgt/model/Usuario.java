@@ -58,6 +58,9 @@ public class Usuario implements Serializable {
 	@Column(nullable=false, length=50)
 	private String nome;
 	
+	@Column(nullable=false, length=10)
+	private String nomeExibicao;
+	
 	@Column(nullable=false, length=30)
 	private String email;
 	
@@ -70,11 +73,11 @@ public class Usuario implements Serializable {
 	private String orgaoExpeditor;
 	
 	@Temporal(TemporalType.DATE)
-	private Calendar dataNascimeto;
+	private Calendar dataNascimento;
 	
 	private String telefonePrincipal;
 	
-	private String telefoneAxiliar;
+	private String telefoneAuxiliar;
 	
 	@Column(nullable=false)
 	private char sexo;
@@ -167,6 +170,14 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
+	public String getNomeExibicao() {
+		return nomeExibicao;
+	}
+
+	public void setNomeExibicao(String nomeExibicao) {
+		this.nomeExibicao = nomeExibicao;
+	}
+
 	public String getRegistroGeral() {
 		return registroGeral;
 	}
@@ -191,12 +202,12 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public Calendar getDataNascimeto() {
-		return dataNascimeto;
+	public Calendar getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataNascimeto(Calendar dataNascimeto) {
-		this.dataNascimeto = dataNascimeto;
+	public void setDataNascimento(Calendar dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getTelefonePrincipal() {
@@ -207,12 +218,12 @@ public class Usuario implements Serializable {
 		this.telefonePrincipal = telefonePrincipal;
 	}
 
-	public String getTelefoneAxiliar() {
-		return telefoneAxiliar;
+	public String getTelefoneAuxiliar() {
+		return telefoneAuxiliar;
 	}
 
-	public void setTelefoneAxiliar(String telefoneAxiliar) {
-		this.telefoneAxiliar = telefoneAxiliar;
+	public void setTelefoneAuxiliar(String telefoneAuxiliar) {
+		this.telefoneAuxiliar = telefoneAuxiliar;
 	}
 
 	public char getSexo() {
