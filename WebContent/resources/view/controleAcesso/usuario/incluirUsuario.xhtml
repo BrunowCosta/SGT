@@ -66,10 +66,11 @@
 					        <p:fileUpload value="#{userWizard.fotoPerfil}" mode="simple" skinSimple="true"/>
 					        
 		                </h:panelGrid>
+		                <h:outputText value="Nota: Campos com (*) tem preenchimento obrigatorio." styleClass="notaRodape"/>
 		            </p:panel>
 		        </p:tab>
 		 	
-		 		<!-- PASSO 2 -->
+				<!-- PASSO 2 -->
 		        <p:tab id="endereco" title="Endereço">
 		            <p:panel header="Endereço - Preencha os campos com as informações de endereço do usuário a ser cadastrado.">
 		                <p:messages />
@@ -103,10 +104,11 @@
 							<p:outputLabel for="complemento" value="Complemento: " />
 		                    <p:inputText id="complemento" size="60" value="#{userWizard.usuario.complemento}" required="true" label="Complemento"/>
 		                </h:panelGrid>
+		                <h:outputText value="Nota: Campos com (*) tem preenchimento obrigatorio." styleClass="notaRodape"/>
 		            </p:panel>
 		        </p:tab>
 		 		
-		 		<!-- PASSO 3 -->
+				<!-- PASSO 3 -->
 		        <p:tab id="dadosFuncionario" title="Dados do Funcionário">
 		            <p:panel header="Dados do Funcionario - Preencha os campos com as informações empregatícias do usuário a ser cadastrado.">
 		                <p:messages />
@@ -129,6 +131,7 @@
 		 					<p:outputLabel for="dataNomeacao" value="Data de Nomeação/Contratação: " />
         					<p:calendar id="dataNomeacao" value="#{userWizard.usuario.dataNomeacao}" locale="br" required="true" navigator="true" pattern="dd/MM/yyyy" />
 		                </h:panelGrid>
+		                <h:outputText value="Nota: Campos com (*) tem preenchimento obrigatorio." styleClass="notaRodape"/>
 		            </p:panel>
 		        </p:tab>
 		        
@@ -145,7 +148,14 @@
 		                    
 		                    <p:outputLabel for="senhaConfirmacao" value="Comfirmação de Senha: " />
 		                    <p:password id="senhaConfirmacao" value="#{userWizard.confirmacaoSenha}" required="true" title="Repita a senha digitada no campo acima." />
+		               		
+		               		<p:outputLabel for="grupoPermissoes" value="Grupo de Permissões: " />
+		                    <p:selectOneMenu id="grupoPermissoes" value="#{userWizard.usuario.grupoPermissoes.id}" required="true" style="width:216px">
+				                <f:selectItem itemLabel="Selecione um grupo de permissões" itemValue="" />
+				            	<f:selectItems value="#{userWizard.gruposPermissoes}" var="grupo" itemLabel="#{grupo.descricao}" itemValue="#{grupo.id}" />
+					        </p:selectOneMenu>
 		                </h:panelGrid>
+		                <h:outputText value="Nota: Campos com (*) tem preenchimento obrigatorio." styleClass="notaRodape"/>
 		            </p:panel>
 		        </p:tab>
 		 	

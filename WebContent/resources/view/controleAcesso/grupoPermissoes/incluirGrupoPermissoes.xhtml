@@ -18,9 +18,10 @@
 		<h:form>
 			<p:panel header="Cadastrar Novo Grupo de Permissões - Escolhas as permissões que o novo grupo deverá possuir.">
                 <p:messages />
-                <h:panelGrid columns="4" cellpadding="3" columnClasses="label, value">
-                    <p:outputLabel for="nomeGrupo" value="Nome do Grupo: " />
-                    <p:inputText id="nomeGrupo" size="60" value="#{grupoPermissoesController.grupoPermissoes.nome}" required="true" label="Nome do Grupo"/>
+                
+                <h:panelGrid columns="2" cellpadding="3" columnClasses="label, value">
+                	<p:outputLabel for="descricaoGrupo" value="Descrição do Grupo: " />
+                    <p:inputText id="descricaoGrupo" size="40" value="#{grupoPermissoesController.grupoPermissoes.descricao}" required="true" label="Descrição do Grupo"/>
                     
                     <p:outputLabel for="status" value="Status: " />
                     <p:selectOneMenu id="status" value="#{grupoPermissoesController.grupoPermissoes.status}" 
@@ -29,16 +30,34 @@
 			            <f:selectItem itemLabel="Ativo" itemValue="A" />
 			            <f:selectItem itemLabel="Inativo" itemValue="I" />
 			        </p:selectOneMenu>
-                    
+                </h:panelGrid>
+                
+                <p:separator/>
+                
+                <h:panelGrid columns="4" cellpadding="3" columnClasses="label, value" style="width:100%;">
                     <p:outputLabel for="permissao1" value="Controle de Acesso: " />
-                    <p:selectOneRadio id="permissao1" value="#{grupoPermissoesController.grupoPermissoes.permissoes[1]}">
+                    <p:selectOneRadio id="permissao1" value="#{grupoPermissoesController.grupoPermissoes.permissoes[1]}" required="true">
 			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
 			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
 			            <f:selectItem itemLabel="Alterar" itemValue="2" />
 			        </p:selectOneRadio>
                     
                     <p:outputLabel for="permissao2" value="Controle Tributario - IPTU: " />
-                    <p:selectOneRadio id="permissao2" value="#{grupoPermissoesController.grupoPermissoes.permissoes[2]}">
+                    <p:selectOneRadio id="permissao2" value="#{grupoPermissoesController.grupoPermissoes.permissoes[2]}" required="true">
+			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
+			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
+			            <f:selectItem itemLabel="Alterar" itemValue="2" />
+			        </p:selectOneRadio>
+			        
+			        <p:outputLabel for="permissao3" value="Controle de Acesso: " />
+                    <p:selectOneRadio id="permissao3" value="#{grupoPermissoesController.grupoPermissoes.permissoes[3]}" required="true">
+			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
+			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
+			            <f:selectItem itemLabel="Alterar" itemValue="2" />
+			        </p:selectOneRadio>
+                    
+                    <p:outputLabel for="permissao4" value="Controle Tributario - IPTU: " />
+                    <p:selectOneRadio id="permissao4" value="#{grupoPermissoesController.grupoPermissoes.permissoes[4]}" required="true">
 			            <f:selectItem itemLabel="Nenhuma" itemValue="0" />
 			            <f:selectItem itemLabel="Visualizar" itemValue="1" />
 			            <f:selectItem itemLabel="Alterar" itemValue="2" />
@@ -46,6 +65,7 @@
 			        
 			        <p:commandButton value="Cadastrar" icon="ui-icon-check"/>
                 </h:panelGrid>
+                <h:outputText value="Nota: Campos com (*) tem preenchimento obrigatorio." styleClass="notaRodape"/>
             </p:panel>
 	    </h:form>
 	</div>

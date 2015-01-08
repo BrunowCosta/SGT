@@ -7,3 +7,24 @@
 .ui-breadcrumb .ui-menuitem-link {
 	text-decoration: none;
 }
+
+.ui-radiobutton .ui-radiobutton-box {
+    width: 11px !important;
+    height: 11px !important;
+}
+
+.ui-radiobutton-icon {
+    margin-left: -0.3em !important;
+    margin-top: -0.5em;
+}
+
+.ui-wizard-step-title {
+    font-size: 13px !important;
+}
+
+.ui-wizard-content .ui-widget, 
+.ui-wizard-content .ui-panel, 
+.ui-wizard-content .ui-widget-content, 
+.ui-wizard-content .ui-corner-al {
+	font-size: 93% !important;
+}
