@@ -18,13 +18,30 @@ public class AbstractController {
 	
 	// Metódos utilizados para exibir um mensagem amigavel na interface.
 	protected void addInterfaceMessage(BusinessException e) {
-		//TODO ver como botar um prefixo.
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage((e.getSeverity() == null ? FacesMessage.SEVERITY_ERROR : e.getSeverity()),
-				"", e.getMessage()));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(this.getServerity(e.getSeverity()), (e.getPrefixo() != null ? e.getPrefixo() : ""), e.getMessage()));
 	}
 	
 	protected void addInterfaceMessage(String mensagem, Severity severity) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "", mensagem));
+	}
+	
+	private Severity getServerity(String codigo) {
+		
+		if(codigo == null) {
+			return FacesMessage.SEVERITY_ERROR;
+		}
+		
+		switch (codigo) {
+		case BusinessException.SEVERITY_ERROR:
+			return FacesMessage.SEVERITY_ERROR;
+		case BusinessException.SEVERITY_FATAL:
+			return FacesMessage.SEVERITY_FATAL;
+		case BusinessException.SEVERITY_INFO:
+			return FacesMessage.SEVERITY_INFO;
+		case BusinessException.SEVERITY_WARNNING:
+			return FacesMessage.SEVERITY_WARN;
+		default:
+			return FacesMessage.SEVERITY_ERROR;
+		}
 	}
 }

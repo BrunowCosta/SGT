@@ -28,3 +28,11 @@
 .ui-wizard-content .ui-corner-al {
 	font-size: 93% !important;
 }
+
+.ui-messages-info, 
+.ui-messages-warn, 
+.ui-messages-error, 
+.ui-messages-fatal {
+	padding: 6px !important;
+	margin: 5px !important;
+}

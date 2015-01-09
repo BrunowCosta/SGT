@@ -1,7 +1,6 @@
-package br.com.empresa.sgt.persistence;
+package br.com.empresa.sgt.persistence.arq;
 
 import java.util.List;
-import java.util.Map;
 
 public interface GenericDao<T, ID> {
 	

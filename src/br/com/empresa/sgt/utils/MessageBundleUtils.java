@@ -21,7 +21,7 @@ public class MessageBundleUtils {
 		if (locale == null) {
 			locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
 		}
-		return  ResourceBundle.getBundle("message.message", locale);
+		return  ResourceBundle.getBundle("br.com.empresa.sgt.mensagens.mensagens", locale);
 	}
 	
 	public String getMessage(String key) {

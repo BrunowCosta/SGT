@@ -24,23 +24,23 @@ public class AcessoController extends AbstractController {
 	public AcessoController() {}
 	
 	public String logon() {
-//		try {
-//			ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();  
-//			HttpSession session = (HttpSession) context.getSession(true);
-//			HttpServletRequest request = (HttpServletRequest)context.getRequest();
-//			
-//			Usuario user = AccessoBusiness.getInstance().autenticar(this.login, this.senha, request);
-//			session.setAttribute(AcessoController.USUARIO_LOGADO, user);
-//			
-//		    TODO Ver por que as vezes da pau no firefox
-//			// TODO Ver um maneira legal de botar o caminho das telas.
-//			// Provavelmente vai ser utilizado no prettyface.
-//			return "/resources/view/usuario/incluirUsuario";
-//		} catch (BusinessException e) {
-//			super.addInterfaceMessage(e);
-//			return null;
-//		}
-		return "/resources/view/controleAcesso/usuario/incluirUsuario";
+		try {
+			ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();  
+			HttpSession session = (HttpSession) context.getSession(true);
+			HttpServletRequest request = (HttpServletRequest)context.getRequest();
+			
+			Usuario user = AccessoBusiness.getInstance().autenticar(this.login, this.senha, request);
+			session.setAttribute(AcessoController.USUARIO_LOGADO, user);
+			
+			// TODO Ver por que as vezes da pau no firefox
+			// TODO Ver um maneira legal de botar o caminho das telas.
+			// Provavelmente vai ser utilizado no prettyface.
+			return "/resources/view/usuario/incluirUsuario";
+		} catch (BusinessException e) {
+			super.addInterfaceMessage(e);
+			return null;
+		}
+//		return "/resources/view/controleAcesso/usuario/incluirUsuario";
 	}
 	
 	public String logout() {

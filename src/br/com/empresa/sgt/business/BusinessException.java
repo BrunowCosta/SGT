@@ -1,47 +1,63 @@
 package br.com.empresa.sgt.business;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+
+import br.com.empresa.sgt.utils.MessageBundleUtils;
 
 
 @SuppressWarnings("serial")
 public class BusinessException extends Exception {
 	
-	public static final char SEVERITY_ERROR = 'E';
-	public static final char SEVERITY_INFO = 'I';
-	public static final char SEVERITY_FATAL = 'F';
-	public static final char SEVERITY_WARNNING = 'W';
+	public static final String SEVERITY_ERROR = "E";
+	public static final String SEVERITY_INFO = "I";
+	public static final String SEVERITY_FATAL = "F";
+	public static final String SEVERITY_WARNNING = "W";
 	
-	private Severity severity;
-	private Exception previousException;
+	private String severity;
+	private String prefixo;
+	private Exception excecaoAnterior;
 	
 	public BusinessException(String message) {
 		super(message);
 	}
 	
-	public BusinessException(String message, Severity severity) {
+	public BusinessException(String message, String prefixo, String severity, Exception excecaoAnterior) {
 		super(message);
+		this.prefixo = prefixo;
 		this.severity = severity;
-	}
-		
-	public BusinessException(String message, Exception previousException) {
-		super(message);
-		this.previousException = previousException;
+		this.excecaoAnterior = excecaoAnterior;
 	}
 	
-	public Exception getPreviousException() {
-		return previousException;
+	public BusinessException(Exception excecaoAnterior) {
+		super(MessageBundleUtils.getInstance().getMessage("sistema.erro.generico"));
+		this.prefixo = MessageBundleUtils.getInstance().getMessage("sistema.erroPrefixo.generico");
+		this.severity = BusinessException.SEVERITY_ERROR;
+		this.excecaoAnterior = excecaoAnterior;
 	}
 	
-	public void setPreviousException(Exception previousException) {
-		this.previousException = previousException;
-	}
-
-	public Severity getSeverity() {
+	public String getSeverity() {
 		return severity;
 	}
 
-	public void setSeverity(Severity severity) {
+	public void setSeverity(String severity) {
 		this.severity = severity;
+	}
+
+	public String getPrefixo() {
+		return prefixo;
+	}
+
+	public void setPrefixo(String prefixo) {
+		this.prefixo = prefixo;
+	}
+
+	public Exception getExcecaoAnterior() {
+		return excecaoAnterior;
+	}
+
+	public void setExcecaoAnterior(Exception excecaoAnterior) {
+		this.excecaoAnterior = excecaoAnterior;
 	}
 	
 }

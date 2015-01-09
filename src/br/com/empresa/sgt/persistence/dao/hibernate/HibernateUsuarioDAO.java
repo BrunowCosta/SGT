@@ -1,13 +1,15 @@
-package br.com.empresa.sgt.persistence;
+package br.com.empresa.sgt.persistence.dao.hibernate;
  
 import java.util.HashMap;
 import java.util.Map;
 
 import br.com.empresa.sgt.model.Usuario;
+import br.com.empresa.sgt.persistence.arq.GenericHibernateDAO;
+import br.com.empresa.sgt.persistence.dao.UsuarioDAO;
+// TODO botar uma interface
+public class HibernateUsuarioDAO extends GenericHibernateDAO <Usuario, Integer> implements UsuarioDAO {
  
-public class UsuarioDAO extends GenericAbstractDao<Usuario, Integer> {
- 
-	public UsuarioDAO() {
+	public HibernateUsuarioDAO() {
 		super();
 	}
 	

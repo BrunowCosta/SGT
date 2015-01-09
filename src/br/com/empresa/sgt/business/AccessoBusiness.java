@@ -2,6 +2,7 @@ package br.com.empresa.sgt.business;
 
 import java.util.Calendar;
 
+import javax.faces.application.FacesMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.owasp.esapi.errors.EncryptionException;
@@ -9,8 +10,8 @@ import org.owasp.esapi.reference.crypto.JavaEncryptor;
 
 import br.com.empresa.sgt.model.RegistroAcesso;
 import br.com.empresa.sgt.model.Usuario;
-import br.com.empresa.sgt.persistence.RegistroAcessoDAO;
-import br.com.empresa.sgt.persistence.UsuarioDAO;
+import br.com.empresa.sgt.persistence.dao.hibernate.HibernateRegistroAcessoDAO;
+import br.com.empresa.sgt.persistence.dao.hibernate.HibernateUsuarioDAO;
 import br.com.empresa.sgt.utils.MessageBundleUtils;
 
 
@@ -22,7 +23,7 @@ public class AccessoBusiness {
 	private AccessoBusiness(){}
 	
 	// TODO ver um padrão de projeto para isso tipo fabrica.
-	UsuarioDAO userDAO = new UsuarioDAO();
+	HibernateUsuarioDAO userDAO = new HibernateUsuarioDAO();
 	
 	public static synchronized AccessoBusiness getInstance() {
 		if(instance == null) {
@@ -37,6 +38,8 @@ public class AccessoBusiness {
 		Usuario user = userDAO.findOneByField("login", "=", login);
 		
 		try {
+			String erroLogicoPrefixo =  MessageBundleUtils.getInstance().getMessage("sistema.erroPrefixo.logico");
+			
 			// Usuário informou um login valido
 			if(user != null) { 
 				if(user.getStatus() == Usuario.STATUS_ATIVO) {
@@ -48,21 +51,21 @@ public class AccessoBusiness {
 				} else {
 					// Usuario com status invalido/bloqueado
 					this.registerAccess(RegistroAcesso.TIPO_BLOQUEADO, login, senha, request);
-					String mensagem = MessageBundleUtils.getInstance().getMessage("sistema.erro.login.impedido") + user.getDescricaoStatus();
-					throw new BusinessException(mensagem);
+					String mensagem = MessageBundleUtils.getInstance().getMessage("sistema.erro.login.impedido") + user.getDescricaoStatus() + ".";
+					throw new BusinessException(mensagem, erroLogicoPrefixo, BusinessException.SEVERITY_ERROR, null);
 				}
 			}
 			
 			// O usuário informado não existe ou a senha é invalida
 			//TODO verificar as informações possiveis para isso aqui (ip, hora, bla bla)
 			this.registerAccess(RegistroAcesso.TIPO_NEGADO, login, senha, request);
-			throw new BusinessException(MessageBundleUtils.getInstance().getMessage("sistema.erro.login.invalido"));
+			throw new BusinessException(MessageBundleUtils.getInstance().getMessage("sistema.erro.login.invalido"), erroLogicoPrefixo, BusinessException.SEVERITY_ERROR, null);
 			
 		// Caso tenha acontecido algum problema na criptografia retorna erro interno no servidor.
 		// TODO criar um tabela para persistir os erros internos no servidor.
-		} catch (EncryptionException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			throw new BusinessException(MessageBundleUtils.getInstance().getMessage("sistema.erro.generico"), e);
+			throw new BusinessException(e);
 		}
 	}
 	
@@ -74,7 +77,7 @@ public class AccessoBusiness {
 	
 	// TODO VER COMO PEGAR INFORMAÇÔES DO REQUEST
 	public void registerAccess(char type, String login, String password, HttpServletRequest request) {
-		RegistroAcessoDAO registroAcessoDAO = new RegistroAcessoDAO();
+		HibernateRegistroAcessoDAO registroAcessoDAO = new HibernateRegistroAcessoDAO();
 		RegistroAcesso registro = new RegistroAcesso(login, password, "ip", "browser", Calendar.getInstance(), type);
 		registroAcessoDAO.persist(registro);
 	}

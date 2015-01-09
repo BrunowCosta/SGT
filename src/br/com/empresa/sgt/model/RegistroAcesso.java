@@ -27,7 +27,7 @@ public class RegistroAcesso implements Serializable {
 	
 	@Id
 	@Column(name="IDREGISTROACESSO")
-	private String id;
+	private Integer id;
 	
 	@Column(nullable=false, length=30)
 	private String login;
@@ -57,11 +57,11 @@ public class RegistroAcesso implements Serializable {
 		this.type = type;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

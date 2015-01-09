@@ -1,4 +1,4 @@
-package br.com.empresa.sgt.persistence;
+package br.com.empresa.sgt.persistence.arq;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -14,9 +14,9 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
 
-public abstract class GenericAbstractDao<T, ID extends Serializable> implements GenericDao<T, ID> {
+public abstract class GenericHibernateDAO<T, ID extends Serializable> implements GenericDao <T, ID> {
 
-	@PersistenceContext(unitName="heranca")
+	@PersistenceContext(unitName="SGTDB")
 	protected EntityManager manager;
 	
 	private Session session;
@@ -24,21 +24,19 @@ public abstract class GenericAbstractDao<T, ID extends Serializable> implements 
 	private Class<T> entityClass;
 	
 	@SuppressWarnings("unchecked")
-	public GenericAbstractDao() {
-		// Seta o tipo da subclasse.
+	public GenericHibernateDAO() {
 		this.setEntityClass((Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
 	}
 
 	@Override
 	public void persist(T obj) {
-		getManager().persist(obj);;
+		getManager().persist(obj);
 		getManager().flush();
 	}
 
 	@Override
 	public void remove(T obj) {
-		// TODO Auto-generated method stub
-		
+		getManager().remove(obj);
 	}
 
 	@Override
