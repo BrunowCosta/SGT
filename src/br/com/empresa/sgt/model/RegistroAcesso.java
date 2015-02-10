@@ -5,6 +5,8 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -13,7 +15,8 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_REGISTROACESSO", schema="ACESSO")
-@SequenceGenerator(name="SEQ_ID_REGISTROACESSO", sequenceName="SEQ_ID_REGISTROACESSO", schema="ACESSO")
+// FIXME Parace que a propriedade shema na nesta anotação está bugada, por isso o "sequenceName" foi adaptado.
+@SequenceGenerator(name="SEQ_ID_REGISTROACESSO", sequenceName="ACESSO.SEQ_ID_REGISTROACESSO", schema="ACESSO")
 public class RegistroAcesso implements Serializable {
 
 	/**
@@ -27,6 +30,7 @@ public class RegistroAcesso implements Serializable {
 	
 	@Id
 	@Column(name="IDREGISTROACESSO")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_ID_REGISTROACESSO")
 	private Integer id;
 	
 	@Column(nullable=false, length=30)

@@ -7,10 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import br.com.empresa.sgt.business.BusinessException;
 import br.com.empresa.sgt.model.Usuario;
+import br.com.empresa.sgt.utils.MessageBundleUtils;
 
 public class AbstractController {
 
-	protected Usuario getLoggedUser() {
+	protected Usuario getUsuarioLogado() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Usuario userLogged = (Usuario) session.getAttribute(AcessoController.USUARIO_LOGADO);
 		return userLogged;
@@ -23,6 +24,13 @@ public class AbstractController {
 	
 	protected void addInterfaceMessage(String mensagem, Severity severity) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "", mensagem));
+	}
+	
+	protected void addGenericErroMessage() {
+		FacesContext.getCurrentInstance().addMessage(null, new 
+				FacesMessage(FacesMessage.SEVERITY_ERROR, 
+				MessageBundleUtils.getInstance().getMessage("sistema.erroPrefixo.generico"), 
+				MessageBundleUtils.getInstance().getMessage("sistema.erro.generico")));
 	}
 	
 	private Severity getServerity(String codigo) {

@@ -38,8 +38,11 @@ public class AcessoController extends AbstractController {
 			return "/resources/view/usuario/incluirUsuario";
 		} catch (BusinessException e) {
 			super.addInterfaceMessage(e);
-			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			super.addGenericErroMessage();
 		}
+		return null;
 //		return "/resources/view/controleAcesso/usuario/incluirUsuario";
 	}
 	

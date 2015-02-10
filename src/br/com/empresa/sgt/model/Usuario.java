@@ -18,7 +18,7 @@ import br.com.empresa.sgt.utils.MessageBundleUtils;
 
 @Entity
 @Table(name="T_USUARIO", schema="ACESSO")
-@SequenceGenerator(name="SEQ_ID_USUARIO", sequenceName="SEQ_ID_USUARIO", schema="ACESSO")
+@SequenceGenerator(name="SEQ_ID_USUARIO", sequenceName="ACESSO.SEQ_ID_USUARIO", schema="ACESSO")
 @NamedQuery(name = "Usuario.autenticacao", query = "select u from Usuario u where u.login = :login and u.senha = :senha")
 public class Usuario implements Serializable {
 	

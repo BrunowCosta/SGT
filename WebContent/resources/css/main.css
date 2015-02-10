@@ -45,6 +45,7 @@ html {
 	min-width: 920px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	
 }
 
 .envelope .conteudo {
@@ -61,13 +62,8 @@ html {
 
 footer {
 	clear:both;
-	
-	font-size: 85%;
-	color: #4f4f4f;
 	height: 50px;
 	text-align: center;
-	
-	padding: 20px;
 	border-top: 1px solid #ddd;
     line-height: 3em;
 }

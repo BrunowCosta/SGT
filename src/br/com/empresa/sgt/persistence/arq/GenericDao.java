@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface GenericDao<T, ID> {
 	
+	public static final String CONDICAO_IGUAL = "=";
+	
 	public void persist(T obj);
 	
 	public void remove(T obj) ;
@@ -16,8 +18,10 @@ public interface GenericDao<T, ID> {
 	
 	public T findById(ID id);
 	
-	public T findMaxId(ID id);
+	public T findMaxField(String field);
 	
 	public T findMinId(ID id);
+	
+	public T findOneByField(String field, String codition, Object Value);
 	
 }

@@ -6,12 +6,10 @@ import java.util.Map;
 import br.com.empresa.sgt.model.Usuario;
 import br.com.empresa.sgt.persistence.arq.GenericHibernateDAO;
 import br.com.empresa.sgt.persistence.dao.UsuarioDAO;
-// TODO botar uma interface
-public class HibernateUsuarioDAO extends GenericHibernateDAO <Usuario, Integer> implements UsuarioDAO {
+
+public class UsuarioHibernateDAO extends GenericHibernateDAO <Usuario, Integer> implements UsuarioDAO {
  
-	public HibernateUsuarioDAO() {
-		super();
-	}
+	public UsuarioHibernateDAO() {}
 	
 	public Usuario authenticate(String login, String senha){
        Map<String, Object> parameters = new HashMap<String, Object>();

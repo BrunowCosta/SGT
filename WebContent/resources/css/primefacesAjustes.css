@@ -8,11 +8,13 @@
 	text-decoration: none;
 }
 
+/* Diminue o tamanho do radio button */
 .ui-radiobutton .ui-radiobutton-box {
     width: 11px !important;
     height: 11px !important;
 }
 
+/* Diminue o tamanho do radio button */
 .ui-radiobutton-icon {
     margin-left: -0.3em !important;
     margin-top: -0.5em;
@@ -22,6 +24,7 @@
     font-size: 13px !important;
 }
 
+/* Arrruma o tamanho dos componente dentro no wizard (solução "provisoria") */
 .ui-wizard-content .ui-widget, 
 .ui-wizard-content .ui-panel, 
 .ui-wizard-content .ui-widget-content, 
@@ -29,6 +32,7 @@
 	font-size: 93% !important;
 }
 
+/* Customiza o tamanho das mensagens de alerta do sistema. */
 .ui-messages-info, 
 .ui-messages-warn, 
 .ui-messages-error, 
@@ -36,3 +40,9 @@
 	padding: 6px !important;
 	margin: 5px !important;
 }
+
+/*  Define o arrendodamento das bordas dos componentes visuais do sistema. */
+.ui-corner-all {
+	border-radius: 0px !important;
+}
+

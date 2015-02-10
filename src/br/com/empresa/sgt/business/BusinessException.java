@@ -1,9 +1,5 @@
 package br.com.empresa.sgt.business;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.application.FacesMessage.Severity;
-
-import br.com.empresa.sgt.utils.MessageBundleUtils;
 
 
 @SuppressWarnings("serial")
@@ -26,13 +22,6 @@ public class BusinessException extends Exception {
 		super(message);
 		this.prefixo = prefixo;
 		this.severity = severity;
-		this.excecaoAnterior = excecaoAnterior;
-	}
-	
-	public BusinessException(Exception excecaoAnterior) {
-		super(MessageBundleUtils.getInstance().getMessage("sistema.erro.generico"));
-		this.prefixo = MessageBundleUtils.getInstance().getMessage("sistema.erroPrefixo.generico");
-		this.severity = BusinessException.SEVERITY_ERROR;
 		this.excecaoAnterior = excecaoAnterior;
 	}
 	
